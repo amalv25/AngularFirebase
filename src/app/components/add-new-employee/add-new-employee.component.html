@@ -1,0 +1,49 @@
+<form class="row g-3" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="col-md-6">
+        <label for="first-name" class="form-label">First Name:</label>
+        <input id="first-name" class="form-control" type="text" formControlName="firstName" required>
+    </div>
+    <div class="col-md-6">
+        <label for="last-name" class="form-label">Last Name:</label>
+        <input id="last-name" class="form-control" type="text" formControlName="lastName">
+    </div>
+    <div class="col-md-6">
+        <label for="designation" class="form-label">Designation: </label>
+        <input id="designation" class="form-control" type="text" formControlName="designation">
+    </div>
+    <div class="col-md-6">
+        <label for="dateOfjoining" class="form-label">Date of Joining: </label>
+        <input id="dateOfjoining" class="form-control" type="date" formControlName="dateOfjoining">
+    </div>
+    <div class="col-md-3">
+        <label for="age" class="form-label">Age </label>
+        <input id="age" class="form-control" type="number" formControlName="age">
+    </div>
+    <div formGroupName="address" class="row">
+      <h4>Address</h4>
+        <div class="col-md-6">
+            <label class="form-label" for="street">Street: </label>
+            <input class="form-control" id="street" type="text" formControlName="street">
+        </div>
+        <div class="col-md-6">
+            <label class="form-label" for="city">City: </label>
+            <input class="form-control" id="city" type="text" formControlName="city">    
+        </div>
+        <div class="col-md-6">
+            <label class="form-label" for="state">State: </label>
+            <input class="form-control" id="state" type="text" formControlName="state">
+        </div>
+        <div class="col-md-6">
+            <label class="form-label" for="zip">Zip Code: </label>
+            <input class="form-control" id="zip"type="text" formControlName="zip">
+        </div>  
+    </div>
+  
+    
+    <button type="submit" class="btn btn-primary col-sm-2" >Add</button>
+  </form>
+
+  
+  <!-- <button type="button" (click)="updateProfile()">Update Profile</button> -->
+  
+  
