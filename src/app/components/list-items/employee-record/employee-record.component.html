@@ -1,1 +1,39 @@
 
+<a
+style="cursor: pointer;"
+[routerLink]="[index]"
+routerLinkActive="active"
+class="list-group-item clearfix"
+>
+    <div class="pull-left">
+        <h4 class="list-group-item-heading">Name :{{ employee.firstName }} {{ employee.lastName }}</h4>
+        <p class="list-group-item-text">Designation :{{employee.designation}}</p>
+    </div>
+</a>
+
+<!-- <li>
+    
+</li>
+<li>
+    Age :{{employee.age}}
+</li>
+<li>
+    
+</li>
+<li>
+    Date of Joining :{{employee.dateOfjoining}}
+</li>
+<ul> Address:
+    <li>
+        Street : {{employee.address.street}}
+    </li>
+    <li>
+        City : {{employee.address.city}}
+    </li>
+    <li>
+        State : {{employee.address.state}}
+    </li>
+    <li>
+        Pin Code : {{employee.address.zip}}
+    </li>
+</ul> -->
