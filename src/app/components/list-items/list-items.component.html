@@ -13,9 +13,9 @@
 <div class="row">
     <div class="col-md-5">
         <app-employee-record
-        *ngFor = "let item of item$ | async; let i= index"
-        [employee]="item"
-        [index] = "i" 
+        *ngFor = "let item of item$ ; let i= index"
+        [employee]="item.record"
+        [index] = "item.id" 
         ></app-employee-record>
     </div>
     <div class="col-md-6">

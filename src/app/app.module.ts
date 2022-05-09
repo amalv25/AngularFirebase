@@ -27,7 +27,8 @@ import { EmployeeRecordComponent } from './components/list-items/employee-record
     HeaderComponent,
     AddNewEmployeeComponent,
     EmployeeDetailsComponent,
-    EmployeeRecordComponent
+    EmployeeRecordComponent,
+    
   ],
   imports: [
     BrowserModule,

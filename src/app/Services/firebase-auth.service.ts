@@ -31,8 +31,18 @@ export class FirebaseAuthService {
   constructor(@Optional() private auth: Auth,
   firestore: Firestore
   ) {
-    let col:any = collection(firestore, 'amal-items');
+    let col : any= collection(firestore,'amal-items').withConverter<any>({
+      fromFirestore: snapshot =>{
+        const record=snapshot.data();
+        const id= snapshot.id;
+        
+        return {record,id};
+      },
+      toFirestore : (it :any)=>it,
+    });
+
     this.item$ = collectionData(col);
+    
     if (auth) {
       this.user = authState(this.auth);
       this.userDisposable = authState(this.auth).pipe(

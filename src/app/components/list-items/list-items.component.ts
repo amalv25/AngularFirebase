@@ -15,9 +15,13 @@ export class ListItemsComponent implements OnInit {
   docId: any;
   docRef:any;
 
-  item$: Observable<any>;
+  item$!: any;
   constructor(private fireAuth:FirebaseAuthService){
-    this.item$=fireAuth.item$;
+    fireAuth.item$.subscribe(data=>{
+      this.item$=data;
+      console.log(this.item$)
+    })
+    
   }
   // constructor(firestore: Firestore,private fireAuth:FirebaseAuthService) {
   //   let col:any = collection(firestore, 'amal-items');
