@@ -1,0 +1,13 @@
+.headerRibon{
+    background-color: rgb(155, 218, 255);
+}
+.title{
+    color: white;
+    font-style: italic;
+    
+}
+.active{
+   
+    background-color: rgb(212, 234, 252);
+    border-radius: 5%;
+}

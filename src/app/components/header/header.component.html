@@ -1,0 +1,50 @@
+
+<nav class="navbar navbar-expand-lg navbar-light sticky-top headerRibon ">
+    <div class="container-fluid ">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggler" (click)="collapsed = !collapsed">
+                <span class="navbar-toggler-icon" ></span>
+            </button>
+            <a routerLink="/" class="navbar-brand mb-0 h2 title" >
+                <img src="assets/images/zeroneLogo.svg" width="100" height="50" alt="Zerone">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed=true">
+            <ul class="navbar-nav col-sm-11">
+                <li class="nav-item ">
+                  <a class="nav-link" routerLink="list" routerLinkActive="active">Employee List </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="employeeNames" routerLinkActive="active"> Employee Table</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="analytics" routerLinkActive="active"> Analytics</a>
+                  </li>
+                <!-- <li class="nav-item">
+                  <a class="nav-link" href="#">Pricing</a>
+                </li> -->
+                
+            </ul>
+            <ul class="navbar-nav ">
+                <li >
+                    <button type="button" 
+                    class="btn btn-secondary" 
+                    (click)="open()" 
+                    *ngIf="showLogoutButton" 
+                    routerLink="/">LogOut</button>
+                    <button type="button" 
+                    class="btn btn-primary" 
+                    (click)="login()" 
+                    *ngIf="!showLogoutButton">LogIn</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+  <kendo-dialog title="Please confirm" *ngIf="opened"(close)="close()">
+    <p>Are you sure you want to LogOut?</p>
+    <kendo-dialog-actions>
+        <button kendoButton class="btn btn-primary " (click)="close()">No</button>
+        <button kendoButton class="btn btn-danger "(click)="logout()" themeColor="primary">Yes</button>
+    </kendo-dialog-actions>
+</kendo-dialog>

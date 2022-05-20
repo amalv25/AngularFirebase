@@ -1,0 +1,29 @@
+<div class="d-flex gap-3">
+<button class="btn btn-primary" (click)="typeChange('bar')">
+    Bar
+</button>
+<button class="btn btn-primary" (click)="typeChange('line')">
+    Line
+</button>
+<button class="btn btn-primary" (click)="typeChange('pie')">
+    Pie
+</button>
+<button class="btn btn-primary" (click)="typeChange('area')">
+    Area
+</button>
+</div>
+<kendo-chart>
+    <kendo-chart-category-axis>
+        <kendo-chart-category-axis-item
+          [categories]="['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']"
+          [title]="{ text: 'Months' }"
+        >
+        </kendo-chart-category-axis-item>
+      </kendo-chart-category-axis>
+    <kendo-chart-series>
+        <kendo-chart-series-item 
+        [type]=type
+        [data]="[1, 4, 5, 2, 1, 8]"> 
+    </kendo-chart-series-item>
+    </kendo-chart-series>
+</kendo-chart>

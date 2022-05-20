@@ -1,0 +1,42 @@
+<br>
+<app-heading name="Employee Table"></app-heading>
+<app-shared listType="Employee Table"></app-shared>
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="onAdd()">Add New Employee</button>
+  </div>
+</div>
+<br>
+<h2></h2>
+<!-- <p>JSON:
+      {{'https://reqres.in/api/users?page=2' | fetch | json}}
+    </p>` -->
+<!-- <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of ('https://reqres.in/api/users?page=2' | fetch) ">
+
+      <th scope="row">{{employee.id}}</th>
+      <td>{{employee.first_name}}</td>
+      <td>{{employee.last_name}}</td>
+      <td>{{employee.email}}</td>
+
+    </tr>
+  </tbody>
+</table> -->
+<kendo-grid [data]="('https://reqres.in/api/users?page=2' | fetch)">
+  <kendo-grid-column field="id" title="ID"> </kendo-grid-column>
+  <kendo-grid-column field="first_name" title="First Name"> </kendo-grid-column>
+  <kendo-grid-column field="last_name" title="Last Name"> </kendo-grid-column>
+  <kendo-grid-column field="email" title="Email"> </kendo-grid-column>
+</kendo-grid>
+<div class="col-md-6">
+  <app-add-new></app-add-new>
+</div>

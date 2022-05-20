@@ -1,0 +1,61 @@
+
+
+<kendo-dialog title="Add new Employee" *ngIf="opened"(close)="close()">
+    <p>Enter details of new employee</p><br>
+    <form class="row g-3" [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm)">
+        <div class="col-md-6">
+            <label for="firstName" class="form-label">First Name:</label>
+            <input id="firstName" 
+            name="firstName" 
+            class="form-control" 
+            type="text" 
+            formControlName="firstName"
+            placeholder="Enter First Name">
+            <br>
+            <div *ngIf="f['firstName'].invalid && (f['firstName'].dirty || f['firstName'].touched)">
+                <span class="alert-danger" *ngIf="f['firstName'].errors?.['required']">First Name is required!</span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="last-name" class="form-label">Last Name:</label>
+            <input id="last-name" 
+            class="form-control" 
+            type="text" 
+            placeholder="Enter Last Name"
+            formControlName="last_name">
+        </div>
+        <div class="col-md-6">
+            <label for="email" class="form-label">Email: </label>
+            <input id="email" 
+            class="form-control" 
+            type="email" 
+            placeholder="Enter Email address"
+            formControlName="email">
+            <br>
+            <div *ngIf="f['email'].invalid && (f['email'].dirty || f['email'].touched)">
+                <span class="alert-danger" *ngIf="f['email'].errors?.['email']">Invalid email!</span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="designation" class="form-label">Designation: </label>
+            <input id="designation" 
+            class="form-control" 
+            type="text" 
+            placeholder="Enter Designation"
+            formControlName="job">
+        </div>
+        <div class="col-xs-3">
+            <button type="submit" 
+            class="btn btn-primary col-sm-2 float-start" 
+            >Add</button>
+            <button kendoButton 
+            class="btn btn-danger col-sm-2 float-end"
+            (click)="close()"
+            >Cancel</button>
+        </div>
+    </form>      
+    <!-- <kendo-dialog-actions>
+        <button kendoButton (click)="close()">No</button>
+        <button kendoButton (click)="close()" themeColor="primary">Yes</button>
+    </kendo-dialog-actions> -->
+</kendo-dialog>

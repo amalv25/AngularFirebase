@@ -1,0 +1,69 @@
+<kendo-dialog title="Add new Employee" *ngIf="opened" (close)="close()">
+
+    <form #employeeForm="ngForm">
+        <div [hidden]="employeeForm.submitted">
+            <div class="cross-validation">
+                <div class="form-group">
+
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" class="form-control" required minlength="4"
+                        placeholder="Enter full name" [(ngModel)]="employee.name" #name="ngModel">
+
+                    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert-danger">
+
+                        <div *ngIf="name.errors?.['required']">
+                            Name is required.
+                        </div>
+                        <div *ngIf="name.errors?.['minlength']">
+                            Name must be at least 4 characters long.
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" class="form-control" #email="ngModel"
+                        placeholder="Enter email" [(ngModel)]="employee.email" [ngModelOptions]="{ updateOn: 'blur' }"
+                        emailValidator>
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert-danger">
+                        <div *ngIf="email.invalid">
+                            <div *ngIf="email.errors?.['email']">
+                                Invalid Email.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group">
+
+                <label for="designation">Designation</label>
+                <select id="designation" name="designation" class="form-control" required
+                    [(ngModel)]="employee.designation" #designation="ngModel">
+                    <option *ngFor="let p of designations" [value]="p">{{p}}</option>
+                </select>
+
+                <div *ngIf="designation.errors && designation.touched" class="alert">
+                    <div *ngIf="designation.errors['required']">designation is required.</div>
+                </div>
+                
+            </div>
+
+            <p>Complete the form to enable the Submit button.</p>
+            <div class="float">
+                <button type="submit" class="btn btn-primary float-start"
+                    [disabled]="employeeForm.invalid">Submit</button>
+                <button type="button" class="btn btn-warning float-end"
+                    (click)="employeeForm.resetForm({})">Reset</button>
+            </div>
+
+        </div>
+
+        <div class="submitted-message" *ngIf="employeeForm.submitted">
+            <p>You've submitted your employee, {{ employeeForm.value.name }}!</p>
+            <button type="button" (click)="employeeForm.resetForm({})">Add new employee</button>
+        </div>
+    </form>
+</kendo-dialog>

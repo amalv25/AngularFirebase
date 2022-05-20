@@ -1,0 +1,50 @@
+<br>
+<app-heading name="Employee List"></app-heading>
+
+<app-shared listType="Employee List"></app-shared>
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-success" (click)="onAddEmployee()">Add New Employee</button>
+    </div>
+</div>
+<br>
+<!-- <div>
+    Auth!
+     <code>{{ (user | async)?.uid }}</code> 
+</div> -->
+<div class="row">
+    <div class="col-md-5">
+        <kendo-listview 
+        [data]="item$"
+        [loading]="loading"
+        [itemClass]="{ 'item-border': true }" 
+        [pageable]="showPager"
+        [pageSize]="pageSize"
+        [skip]="skip"
+        (pageChange)="handlePageChange($event)"
+        >
+            <ng-template kendoListViewItemTemplate let-dataItem="dataItem">
+                <app-employee-record [employee]="dataItem" [index]="dataItem.id">
+                </app-employee-record>
+            </ng-template>            
+        </kendo-listview>
+
+    </div>
+    <div class="col-md-6">
+        <app-add-new-dialog (addNewEvent)="loadData()"></app-add-new-dialog>
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<div>
+    <kendo-listview
+    [style.width.px]="500"
+    [height]="300"
+    [data]="scrollItem"
+    [itemStyle]="{ padding: '10px' }"
+    >
+    <ng-template kendoListViewItemTemplate let-dataItem="dataItem">
+        <app-employee-record [employee]="dataItem" [index]="dataItem.id">
+        </app-employee-record>
+    </ng-template>            
+    </kendo-listview>
+</div>

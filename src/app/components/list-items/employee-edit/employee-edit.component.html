@@ -1,0 +1,40 @@
+<form class="row g-3" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="float-start">
+            <img [src]="[employeeDetail.avatar]" 
+            alt="image" 
+            class="img-responsive" 
+            style="max-height: 250px; opacity: 10;"
+            >
+        </div>
+        <div class="col-md-6">
+            <label for="first_name" class="form-label">First Name:</label>
+            <input id="first_name" 
+            class="form-control" 
+            type="text" 
+            formControlName="first_name" 
+            [(ngModel)]="employeeDetail.first_name"
+            required>
+        </div>
+        <div class="col-md-6">
+            <label for="last_name" class="form-label">Last Name:</label>
+            <input id="last_name"
+            class="form-control" 
+            type="text"
+            [(ngModel)]="employeeDetail.last_name"
+            formControlName="last_name">
+        </div>
+        <div class="col-md-6">
+            <label for="email" class="form-label">Email: </label>
+            <input id="email" 
+            class="form-control" 
+            type="text" 
+            formControlName="email"
+            [(ngModel)]="employeeDetail.email"
+            >
+        </div>
+    
+    </div>
+    
+    <button type="submit" class="btn btn-primary col-sm-2" >Update</button>
+</form>
