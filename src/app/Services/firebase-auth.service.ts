@@ -58,7 +58,6 @@ export class FirebaseAuthService {
         // console.log('is logged in '+isLoggedIn);
         // console.log('is not logged in '+!isLoggedIn);
       });
-
     }
     // console.log('show login button'+this.showLoginButton);
     // console.log('show logout button'+this.showLogoutButton)
